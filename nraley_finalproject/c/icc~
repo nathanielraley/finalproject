@@ -1,0 +1,15 @@
+c: project.o functions.o
+        icc -o project-c project.o functions.o
+
+project.o: project.c header.h
+        icc -c project.c
+
+functions.o: functions.c header.h
+        icc -c functions.c
+
+.PHONY: clean
+
+clean:
+        rm -f *.o core
+        rm project-c
+

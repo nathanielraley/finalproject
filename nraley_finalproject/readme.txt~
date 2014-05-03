@@ -1,0 +1,72 @@
+	Nathaniel Raley
+	Introduction to Scientific Programming (SSC 332/392)
+	Spring 2014
+	Final Project: Solving the Heat Equation in 2 Dimensions
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CONTENTS:
+
+The directory "finalproject" contains 2 files: this readme file "readme.txt" as
+well as the makefile "Makefile".
+
+It also contains the 2 subdirectories "c" and "fortran"
+ 
+The "c" directory contains a header file "header.h" with the function
+prototypes, a file "functions.c" which contains input/output functions, and
+a file "project.c" which contains the main program. 
+
+The "fortran" directory contains a file "subroutines" with the module and
+input/output subroutines and a file "main.f90" which contains the main program.
+
+Each of these subdirectories each has 3 additional files: a file called
+"heat-sample.inp" which is a default file for input values, a file called
+"output.txt" which serves as a default file for output values, and another
+Makefile specific to the subdirectory in order to facilitate cleaning. 
+
+
+INSTRUCTIONS:
+
+To build the program in both C and Fortran, simply navigate to the directory
+"~/finalproject" and type "make" into the terminal. To build just the C 
+executable, type "make c"; to build just the fortran, type "make fortran".
+The executable files will appear in their respective subdirectories. 
+
+To build the fortran executable "project-f90" while  in the "fortran"
+subdirectory, type "make" or "make fortran" (either will work)
+
+To build the C executable "project-c" while in the "c" subdirectory, type 
+"make" or "make c" (either will work)
+
+!!!!!!!!! NOTE: the default compilers are gcc and gfortran !!!!!!!!!!
+
+The programs require 3 command line arguments: a string specifying the input file
+name, an integer specifying the frequency of the output, and a string 
+specifying the output filename. The C program takes an option fourth argument
+(which can be anything) that pipes the output straight to gnuplot (v.4.6 and later)
+and generates a timeseries heatmap. To make this look nice, generate only 5 timesteps
+or so. For example, to run the program, enter 
+
+./program input_filename frequency_of_output output_filename
+
+for instance,
+
+./project-c heat-sample.inp 25 output.txt
+
+The default names for the executable files are "project-c" and "project-f90" 
+
+specifying a fourth argument for "project-c", e.g.,
+
+./project-c heat-sample.inp 25 output.txt foo
+
+will open a window in gnu plot and show several timesteps; if
+you get an error, please install the latest version of gnuplot (4.6.5).
+
+Use make clean to remove all *.o files and the program executables.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+If you experience any difficulties with these programs or would like to speak to
+their developer, email Nathaniel Raley at nathaniel.raley@utexas.edu
+
+
